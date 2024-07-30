@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+        <h1 class="form-title">Order Confirmation</h1>
+        <p>Thank you for your purchase! Your order number is <%= orderId %>.</p>
+        <p>We will send you an email confirmation shortly with the details of your order.</p>
+        <a href="/" class="btn continue-shopping">Continue Shopping</a>
+    </div>
+</body>
+</html>

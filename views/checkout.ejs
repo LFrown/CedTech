@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+        <div class="container">
+            <h1 class="form-title">CHECKOUT</h1>
+            <form action="/checkout" method="POST">
+                <div class="form-group">
+                    <label for="shippingAddress">Shipping Address:</label>
+                    <input type="text" id="shippingAddress" name="shippingAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method:</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="creditCard">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </div>
+                <h2 class="form-title">Order Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ITEM</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cartItems.forEach(item=> { %>
+                            <tr>
+                                <td>
+                                    <%= item.productName %>
+                                </td>
+                                <td>$<%= item.price %>
+                                </td>
+                                <td>
+                                    <%= item.quantity %>
+                                </td>
+                                <td>$<%= (item.price * item.quantity).toFixed(2) %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <div class="cart-summary">
+                    <span>Total: $<%= cartItems.reduce((sum, item)=> sum + item.price * item.quantity, 0).toFixed(2)
+                            %></span>
+                </div>
+                <div class="cart-actions">
+                    <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

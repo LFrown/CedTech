@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+        <h1 class="form-title">WISHLIST</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEM</th>
+                    <th>BRAND</th>
+                    <th>PRICE</th>
+                    <th>REMOVE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% wishlistItems.forEach(item => { %>
+                <tr>
+                    <td><%= item.productName %></td>
+                    <td><%= item.productBrand %></td>
+                    <td>$<%= item.productPrice %></td>
+                    <td>
+                        <form action="/remove-from-wishlist" method="POST">
+                            <input type="hidden" name="wishlistId" value="<%= item.wishlistId %>">
+                            <button type="submit" class="removebtn">x</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="cart-actions">
+            <a class="btn btn-primary btn-block" href="/">CONTINUE SHOPPING</a>
+        </div>
+    </div>
+</body>
+</html>

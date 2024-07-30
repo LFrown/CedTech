@@ -1,0 +1,513 @@
+/*page colors*/
+.pagecolor{
+    background-color: rgb(54, 54, 54);
+}
+/* Navbar Styles */
+.navbar {
+    background-color: #333;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #555;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-toggler {
+    border-color: #fff;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
+
+.nav-item .bi {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+/*signup(login) and register*/
+.SRbtn{
+    margin: 100;
+}
+
+/*add product page */
+/* Form Title Styles*/
+.formtextcenter {
+    margin-bottom: 1rem;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Input Group Styles */
+.input-group-text {
+    background-color: #fff;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.input-group .form-control {
+    border: 1px solid #ced4da;
+    border-left: none;
+}
+
+
+
+
+/* Hero Image Styles */
+.hero-cat {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-cat {
+    background-image: url('/images/heroimage2.webp');
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.hero-text p {
+    font-size: 1.5em;
+    margin: 10px 0 0;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1.2em;
+    }
+}
+
+
+/*Category button styles for home page*/
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    transform: translateY(-50%);
+}
+
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+.catbtn {
+    border-radius: 1px;
+    background-color: #ff3f0400;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.catbtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.catbtn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.catbtn:hover span {
+    padding-right: 25px;
+}
+
+.catbtn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+
+/*parallax image*/
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+}
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3,
+.bgimg-4 {
+    position: relative;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.bgimg-1 {
+    background-image: url("/images/keyboard1.jpg");
+    min-height: 50%;
+}
+
+.bgimg-2 {
+    background-image: url("/images/heroimage.webp");
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    background-image: url("/images/setup4.jpg");
+    min-height: 400px;
+}
+
+.bgimg-4 {
+    background-image: url("/images/mouse1.jpg");
+    min-height: 400px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+}
+
+/* Turn off parallax scrolling for tablets and phones taken from chatpgt */ 
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1,
+    .bgimg-2,
+    .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+
+
+
+
+/* Product View Styles */
+.product-main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.product-view {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-images {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.product-image-main img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.product-image-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-image-thumbnails img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-details h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+
+.product-options h3 {
+    margin-bottom: 10px;
+}
+
+.product-color-options img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.product-quantity {
+    margin-bottom: 20px;
+}
+
+.product-quantity label {
+    margin-right: 10px;
+}
+
+.product-quantity input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Button Styles for all pages*/
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/*button styles for product cards*/
+.btn.add-to-cart {
+    display: inline-block;
+    padding: 1px 3px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 6px;
+}
+
+.btn.add-to-cart:hover {
+    color: #ff0000;
+}
+
+
+/*index and category page product cards style*/
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.product-card h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+.product-card a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.product-card a:hover {
+    text-decoration: underline;
+}
+
+
+
+/*shopping cart*/
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead {
+    background: #f4f4f4;
+}
+
+thead th {
+    text-align: left;
+    padding: 10px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td {
+    padding: 10px;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+}
+
+.iteminfo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+
+.cartsummary {
+    text-align: right;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.cartactions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*button styles for shopping cart*/
+
+.btn {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    margin: 1px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #ffffff;
+}
+.btn.shoppingbtn {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.btn.shoppingbtn:hover {
+    background-color: #0056b3;
+}
+
+.removebtn {
+    background: none;
+    border: none;
+    color: #e60023;
+    font-size: 20px;
+    cursor: pointer;
+}

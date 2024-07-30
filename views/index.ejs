@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+        <!-- paralax images -->
+        <!-- image1 -->
+        <div class="bgimg-1">
+            <div class="caption">
+                <span class="border">GAMING IS NOT JUST SKILL</span>
+                <div class="button-container">
+                    <button class="catbtn" onclick="window.location.href='/products/keyboard'">
+                        <span>Browse Keyboards here</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="color: #777; background-color: rgb(54, 54, 54); text-align: center; padding: 50px 80px; text-align: justify;">
+            <h3 style="text-align: left;">What you use to game</h3>
+        </div>
+        <!-- image2 -->
+        <div class="bgimg-2">
+            <div class="caption">
+                <span class="border"
+                    style="text-align: right; background-color: transparent; font-size: 25px; color: #f7f7f7;">
+                    COULD JUST BE THE DIFFERENCE
+                </span>
+                <div class="button-container">
+                    <button class="catbtn" onclick="window.location.href='/products/computer'">
+                        <span>Browse Computers here</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="color: #777; background-color: rgb(54, 54, 54); text-align: center; padding: 50px 80px; text-align: justify;">
+            <h3 style="text-align: right;">FOR YOU</h3>
+        </div>
+        <!-- image3 -->
+        <div class="bgimg-3">
+            <div class="caption">
+                <span class="border" style="background-color: black; font-size: 25px; color: #f7f7f7;">TO DOMINATE</span>
+                <div class="button-container">
+                    <button class="catbtn" onclick="window.location.href='/products/monitor'">
+                        <span>Browse Monitors here</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="color: #777; background-color: rgb(54, 54, 54); text-align: center; padding: 50px 80px; text-align: justify;">
+            <h3 style="text-align: left;">ARE YOU READY?</h3>
+        </div>
+        <!-- image5 -->
+        <div class="bgimg-4">
+            <div class="caption">
+                <span class="border">TO CARRY.</span>
+                <div class="button-container">
+                    <button class="catbtn" onclick="window.location.href='/products/mouse'">
+                        <span>Browse Mouses here</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- RECOMMENDED -->
+        <div
+            style="color: #777; background-color: rgb(54, 54, 54); text-align: center; padding: 50px 80px; text-align: justify;">
+            <h3 style="text-align: left;">Recommended products</h3>
+            <main>
+                <div class="product-grid">
+                    <% recommended.forEach(product=> { %>
+                        <div class="product-card">
+                            <img src="/images/<%= product.productImage.split(',').map(image => image.trim())[0] %>"
+                                alt="<%= product.productName %>">
+                            <h2><a href="/product/<%= product.productId %>">
+                                    <%= product.productName %>
+                                </a></h2>
+                            <p>Brand: <%= product.productBrand %>
+                            </p>
+                            <p>Price: $<%= product.productPrice %>
+                            </p>
+                        </div>
+                        <% }) %>
+                </div>
+            </main>
+        </div>
+        <!-- POPULAR -->
+        <div
+            style="color: #777; background-color: rgb(54, 54, 54); text-align: center; padding: 50px 80px; text-align: justify;">
+            <h3 style="text-align: left;">Popular products</h3>
+            <main>
+                <div class="product-grid">
+                    <% popular.forEach(product=> { %>
+                        <div class="product-card">
+                            <img src="/images/<%= product.productImage.split(',').map(image => image.trim())[0] %>"
+                                alt="<%= product.productName %>">
+                            <h2><a href="/product/<%= product.productId %>">
+                                    <%= product.productName %>
+                                </a></h2>
+                            <p>Brand: <%= product.productBrand %>
+                            </p>
+                            <p>Price: $<%= product.productPrice %>
+                            </p>
+                        </div>
+                        <% }) %>
+                </div>
+            </main>
+        </div>
+</body>
+
+</html>

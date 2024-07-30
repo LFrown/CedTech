@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.productName %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        function changeImage(imageUrl) {
+            document.getElementById("mainImage").src = imageUrl;
+        }
+    </script>
+</head>
+
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+        <main class="product-main">
+            <div class="product-view">
+                <div class="product-images">
+                    <div class="product-image-main">
+                        <img id="mainImage" src="/images/<%= productImages[0] %>" alt="<%= product.productName %>">
+                    </div>
+                    <div class="product-image-thumbnails">
+                        <% productImages.forEach(function(image, index) { %>
+                            <img src="/images/<%= image %>" alt="Thumbnail <%= index + 1 %>"
+                                onclick="changeImage('/images/<%= image %>')">
+                            <% }); %>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1>
+                        <%= product.productName %>
+                    </h1>
+                    <div class="product-price">
+                        <span>$<%= product.productPrice %></span>
+                    </div>
+                    <form action="/addtocart" method="POST">
+                        <input type="hidden" name="productId" value="<%= product.productId %>">
+                        <input type="hidden" name="price" value="<%= product.productPrice %>">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" required>
+                        <button type="submit" class="btn add-to-cart" title="Add to Cart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+
+                    </form>
+                    <form action="/addtowishlist" method="POST">
+                        <input type="hidden" name="productId" value="<%= product.productId %>">
+                        <button type="submit" class="btn add-to-cart" title="Add to Wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </form>
+                    <ul>
+                        <li>Brand: <%= product.productBrand %>
+                        </li>
+                        <li>Category: <%= product.productCategory %>
+                        </li>
+                        <li>Available Quantity: <%= product.productQuantity %>
+                        </li>
+                        <li>Price: $<%= product.productPrice %>
+                        </li>
+                        <li>Description:
+                            <div>
+                                <%= product.description %>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+</body>
+
+</html>

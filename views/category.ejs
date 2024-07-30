@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= category %> Products
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+        <div class="hero-cat">
+            <div class="hero-text">
+                <header>
+                    <h1>Our <%= category %> products</h1>
+                </header>
+            </div>
+        </div>
+        <div
+            style="color: #777; background-color: rgb(54, 54, 54); text-align: center; padding: 50px 80px; text-align: justify;">
+            <h3 style="text-align: left;">ARE YOU READY?</h3>
+            <main>
+                <form method="GET" action="/products/<%= category %>">
+                    <label for="brand">Filter by brand:</label>
+                    <select name="brand" id="brand">
+                        <option value="">All</option>
+                        <% brands.forEach(brand=> { %>
+                            <option value="<%= brand %>" <%=brand===selectedBrand ? 'selected' : '' %>><%= brand %>
+                            </option>
+                            <% }) %>
+                    </select>
+                    <button type="submit">Filter</button>
+                </form>
+                <div class="product-grid">
+                    <% products.forEach(product=> {
+                        const productImages = product.productImage.split(',').map(image => `${image.trim()}`);
+                        %>
+                        <div class="product-card">
+                            <img src="/images/<%= product.productImage.split(',').map(image => image.trim())[0] %>"
+                                alt="<%= product.productName %>">
+                            <h2><a href="/product/<%= product.productId %>">
+                                    <%= product.productName %>
+                                </a></h2>
+                            <p>Brand: <%= product.productBrand %>
+                            </p>
+                            <p>Price: $<%= product.productPrice %>
+                            </p>
+                        </div>
+                        <% }) %>
+                </div>
+            </main>
+        </div>
+</body>
+
+</html>

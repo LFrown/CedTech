@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="pagecolor">
+    <%- include('partials/navbar.ejs') %>
+    <div class="container">
+        <h1 class="form-title">SHOPPING CART</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEM</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>TOTAL</th>
+                    <th>REMOVE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cartItems.forEach(item => { %>
+                <tr>
+                    <td>
+                        <div class="iteminfo">
+                            <img src="/images/<%= item.productImage.split(',')[0].trim() %>" alt="<%= item.productName %>">
+                            <span><%= item.productName %></span>
+                        </div>
+                    </td>
+                    <td>$<%= item.price %></td>
+                    <td>
+                        <form action="/updatequantity" method="POST">
+                            <input type="hidden" name="usercartitemsId" value="<%= item.usercartitemsId %>">
+                            <input type="number" name="quantity" value="<%= item.quantity %>" min="1">
+                            <button type="submit" class="btnupdate">Update</button>
+                        </form>
+                    </td>
+                    <td>$<%= (item.price * item.quantity).toFixed(2) %></td>
+                    <td>
+                        <form action="/removefromcart" method="POST">
+                            <input type="hidden" name="usercartitemsId" value="<%= item.usercartitemsId %>">
+                            <button type="submit" class="removebtn">x</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="cartsummary">
+            <span>Total: $<%= cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2) %></span>
+        </div>
+        <div class="cartactions">
+            <a class="btn shoppingbtn" href="/">CONTINUE SHOPPING</a>
+            <a class="btn shoppingbtn" href="/wishlist">WISHLIST</a>
+            <a class="btn shoppingbtn" href="/checkout">CHECKOUT</a>
+        </div>
+    </div>
+</body>
+</html>
