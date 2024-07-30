@@ -6,9 +6,13 @@ const app = express();
 
 // Create MySQL connection
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
+    // host: 'localhost',
+    // user: 'root',
+    // password: '',
+    // database: 'cedtech'
+    host: 'db4free.net',
+    user: 'cedrickc330',
+    password: '12345678',
     database: 'cedtech'
 });
 
